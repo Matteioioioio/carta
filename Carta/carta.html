@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta d'Identità</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Carta d'Identità</h1>
+        <div class="info">
+            <img class="photo" src="110811.png" alt="Foto">
+            <div class="field">
+                <div class="label">Nome:</div>
+                <div class="value" id="nome"></div>
+            </div>
+            <div class="field">
+                <div class="label">Cognome:</div>
+                <div class="value" id="cognome"></div>
+            </div>
+            <div class="field">
+                <div class="label">Data di nascita:</div>
+                <div class="value" id="dataNascita"></div>
+            </div>
+            <div class="field">
+                <div class="label">Luogo di nascita:</div>
+                <div class="value" id="luogoNascita"></div>
+            </div>
+            <div class="field">
+                <div class="label">Sesso:</div>
+                <div class="value" id="sesso"></div>
+            </div>
+            <div class="field">
+                <div class="label">Cittadinanza:</div>
+                <div class="value" id="cittadinanza"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        fetch('./dati.json')
+            .then((response) => response.json())
+            .then((json) => {
+                    document.getElementById("nome").innerHTML = json.nome;
+                    document.getElementById("cognome").innerHTML = json.cognome;
+                    document.getElementById("dataNascita").innerHTML = json.dataNascita;
+                    document.getElementById("luogoNascita").innerHTML = json.luogoNascita;
+                    document.getElementById("sesso").innerHTML = json.sesso;
+                    document.getElementById("cittadinanza").innerHTML = json.cittadinanza;
+            });
+    </script>
+</body>
+</html>
